@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=/pvpafinal/" />
+    <title>Redirecting…</title>
+    <script>
+      const repo = "/pvpafinal";
+      const redirect = repo + "/index.html";
+      const path = window.location.pathname.replace(/\/pvpafinal/, "");
+      const url = repo + path + window.location.search + window.location.hash;
+      // If deep link, rewrite to SPA entry
+      if (path && path !== "/" && path !== "/index.html") {
+        location.replace(url);
+      } else {
+        location.replace(redirect);
+      }
+    </script>
+  </head>
+  <body>Redirecting…</body>
+</html>
