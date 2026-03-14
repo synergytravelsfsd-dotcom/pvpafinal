@@ -2,7 +2,11 @@ import Layout from "@/components/Layout";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const VERIFY_API_URL = ""; // e.g., https://script.google.com/macros/s/<DEPLOY_ID>/exec
+const VERIFY_API_URL: string =
+  // @ts-expect-error runtime global may exist
+  (typeof window !== "undefined" && (window as any).__VERIFY_API_URL__) ||
+  import.meta.env.VITE_VERIFY_API_URL ||
+  "";
 
 type VerifyResponse = {
   valid: boolean;
@@ -116,4 +120,3 @@ const Verify = () => {
 };
 
 export default Verify;
-

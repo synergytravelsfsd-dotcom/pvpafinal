@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scan to Register – IVP 2026</title>
+    <style>
+      @page { size: A4; margin: 20mm; }
+      html, body { height: 100%; }
+      body { font-family: Arial, Helvetica, sans-serif; margin: 0; color: #0f172a; }
+      .wrap { min-height: 100%; display: grid; place-items: center; padding: 24px; }
+      .card { text-align: center; }
+      h1 { font-size: 40px; margin: 0 0 8px; letter-spacing: 0.5px; }
+      h2 { font-size: 18px; margin: 0 0 24px; font-weight: 500; color: #334155; }
+      .qr { display: inline-block; padding: 12px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; }
+      .qr img { width: 320px; height: 320px; display: block; }
+      .footer { margin-top: 16px; font-size: 12px; color: #64748b; }
+      .brand { margin-top: 10px; font-size: 14px; letter-spacing: 1px; color: #0ea5a4; }
+      @media print {
+        .footer { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <div class="brand">PVPA • IVP 2026</div>
+        <h1>Scan to Register</h1>
+        <h2>Use your phone camera to open the registration form</h2>
+        <div class="qr">
+          <img alt="Scan to Register"
+               src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSc6Gu4MY0EaSJiVl_SXyvKDKCECjc7qvqrWY_l4eZpx2AlBrA%2Fviewform%3Fusp%3Dsharing%26ouid%3D100445045589207408557" />
+        </div>
+        <div class="footer">International Veterinary Expo 2026 • Lahore Expo Centre</div>
+      </div>
+    </div>
+  </body>
+</html>
