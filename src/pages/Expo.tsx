@@ -7,6 +7,10 @@ import CountdownTimer from "@/components/CountdownTimer";
 // import venueImg from "@/assets/venue-lahore.jpg";
 import RegistrationDialog from "@/components/RegistrationDialog";
 
+const googleFormUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSc6Gu4MY0EaSJiVl_SXyvKDKCECjc7qvqrWY_l4eZpx2AlBrA/viewform?usp=sharing&ouid=100445045589207408557";
+const googleFormQr = `https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=${encodeURIComponent(googleFormUrl)}`;
+
 const schedule = [
   {
     day: "Day 1 — April 28",
@@ -81,15 +85,14 @@ const Expo = () => {
             <CountdownTimer />
           </div>
           <div className="flex flex-wrap gap-3">
-            <button
+            <a
               className="btn-secondary rounded-lg"
-              onClick={() => {
-                setRegType("Visitor");
-                setRegOpen(true);
-              }}
+              href={googleFormUrl}
+              target="_blank"
+              rel="noreferrer"
             >
               Register Now
-            </button>
+            </a>
             <a href="#schedule" className="btn-outline-light rounded-lg">View Schedule</a>
           </div>
         </motion.div>
@@ -124,6 +127,38 @@ const Expo = () => {
               <div className="text-sm text-muted-foreground mt-1">{s.sub}</div>
             </motion.div>
           ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Scan to Register */}
+    <section className="py-16 bg-muted">
+      <div className="container mx-auto px-4">
+        <h2 className="section-heading text-center mb-2">Scan to Register</h2>
+        <p className="section-subheading text-center mx-auto mb-8">Open the registration form instantly by scanning the QR code.</p>
+        <div className="max-w-xl mx-auto bg-card border border-border rounded-2xl p-6 text-center">
+          <div className="inline-block p-3 bg-white rounded-xl border border-border">
+            <img
+              src={googleFormQr}
+              alt="Scan to register for IVP 2026"
+              className="w-56 h-56"
+              width={256}
+              height={256}
+              loading="lazy"
+            />
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
+            <a href={googleFormUrl} target="_blank" rel="noreferrer" className="btn-secondary rounded-lg">
+              Open Registration Form
+            </a>
+            <a href={googleFormQr} download="ivp-2026-registration-qr.png" className="btn-primary rounded-lg">
+              Download QR
+            </a>
+            <Link to="/verify" className="btn-outline rounded-lg">
+              Verify Tickets
+            </Link>
+          </div>
+          <p className="text-xs text-muted-foreground mt-3">Share this QR on social media or print for on-site scanning.</p>
         </div>
       </div>
     </section>
@@ -192,24 +227,16 @@ const Expo = () => {
                   Contact Us
                 </Link>
               ) : (
-                <button
-                  onClick={() => {
-                    const mapType = r.type.includes("Student")
-                      ? "Student"
-                      : r.type.includes("Visitor")
-                      ? "Visitor"
-                      : r.type.includes("Exhibitor")
-                      ? "Exhibitor"
-                      : "Visitor";
-                    setRegType(mapType as "Student" | "Visitor" | "Exhibitor");
-                    setRegOpen(true);
-                  }}
+                <a
+                  href={googleFormUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   className={`w-full py-2.5 rounded-lg font-semibold text-sm ${
                     i === 1 ? "btn-secondary" : "btn-primary"
                   }`}
                 >
                   Register
-                </button>
+                </a>
               )}
             </motion.div>
           ))}

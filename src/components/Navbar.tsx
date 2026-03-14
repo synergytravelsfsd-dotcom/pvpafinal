@@ -5,6 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import pvpaLogo from "@/assets/pvpa-logo.png";
 import RegistrationDialog from "@/components/RegistrationDialog";
 
+const googleFormUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLSc6Gu4MY0EaSJiVl_SXyvKDKCECjc7qvqrWY_l4eZpx2AlBrA/viewform?usp=sharing&ouid=100445045589207408557";
+
 const navItems = [
   { label: "Home", path: "/" },
   { label: "About PVPA", path: "/about" },
@@ -81,15 +84,14 @@ const Navbar = () => {
             </Link>
           ))}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <button
+            <a
               className="btn-secondary text-sm py-2 px-4 rounded-md shadow-md"
-              onClick={() => {
-                setRegType("Visitor");
-                setRegOpen(true);
-              }}
+              href={googleFormUrl}
+              target="_blank"
+              rel="noreferrer"
             >
               Register Now
-            </button>
+            </a>
           </motion.div>
         </div>
 
@@ -140,16 +142,15 @@ const Navbar = () => {
                 transition={{ delay: navItems.length * 0.05 }}
                 className="mt-2"
               >
-                <button
-                  onClick={() => {
-                    setRegType("Visitor");
-                    setRegOpen(true);
-                    setMobileOpen(false);
-                  }}
+                <a
+                  href={googleFormUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setMobileOpen(false)}
                   className="btn-secondary text-sm text-center py-2.5 rounded-lg w-full"
                 >
                   Register Now
-                </button>
+                </a>
               </motion.div>
             </div>
           </motion.div>

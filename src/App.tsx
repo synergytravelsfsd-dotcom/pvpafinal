@@ -10,6 +10,7 @@ import Members from "./pages/Members";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Verify from "./pages/Verify";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/members" element={<Members />} />
           <Route path="/news" element={<News />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/verify" element={<Verify />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
